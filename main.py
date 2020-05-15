@@ -13,6 +13,7 @@ bot = commands.Bot(command_prefix='!')
 #bot.load_extension('code.showPicGif') #但在centOS環境下可以執行 ==
 bot.load_extension('cmds')
 bot.load_extension('showPicGif')
+bot.load_extension('listener')
 
 #當bot成功上線時輸出成功訊息
 @bot.event
