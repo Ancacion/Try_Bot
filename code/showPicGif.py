@@ -38,5 +38,10 @@ class showPicGif(commands.Cog):
         pic = data['KoLianNa']
         await ctx.send(pic)
 
+    @commands.command()
+    async def rdrr2(self, ctx):
+        pic = data['rdrr2']
+        await ctx.send(pic)
+
 def setup(bot):
     bot.add_cog(showPicGif(bot))

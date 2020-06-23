@@ -41,7 +41,7 @@ class cmds(commands.Cog):
         #async def limit(self, *, arg):
    
     @commands.command()
-    async def add(self, ctx, a: int, b: int):
+    async def add(self, ctx, a: float, b: float):
         await ctx.send(a + b)
     
     @commands.command()
