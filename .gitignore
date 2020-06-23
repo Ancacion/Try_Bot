@@ -2,6 +2,7 @@
 # 前面+ '!' 可反向為不要忽略 -> !*.c
 *.json
 set.json
+*.pyc
 
 # 忽略 config 目錄下的 database.yml 檔案
 # config/database.yml
