@@ -3,7 +3,7 @@ from discord.ext import commands
 import os
 import json
 
-with open('set.json', 'r', encoding = 'utf8') as jfile:
+with open('cmd.json', 'r', encoding = 'utf8') as jfile:
     data = json.load(jfile)
 
 UBIimg = 0
