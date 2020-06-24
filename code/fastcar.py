@@ -1,5 +1,6 @@
 #輸入Discord用的函式庫
 import discord
+from code.hideCode.regular import *
 from discord.ext import commands
 from bs4 import BeautifulSoup
 from lxml import etree
@@ -15,21 +16,6 @@ with open('set.json', 'r', encoding = 'utf8') as jfile:
 class fastcar(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
-
-#    @commands.command()
-#    async def Car(self, ctx, html):
-#        if (html == "p") or (html == "P") or (html == "pixiv") or (html == "Pixiv"):
-#            output = data['Pixiv'] + (random(10000000, 99999999) 
-#            if LDOApixiv(output):
-#                await ctx.send('||' + output + '||\n')
-#                await ctx.send("可能會有太香的東西 慎點\n")
-#            else:
-#                await ctx.send("404 not found. 發車到P網的同志翻車了\n")
-#        elif (html == "n") or (html == "nhentai"):
-#            output = data['nhentai'] + (random(100000, 999999) 
-#            await ctx.send('||' + output + '||')
-#        else:
-#           await ctx.send("plz enter \'!Car p\' or \'!Car n\'\n to use randomCar")
        
     @commands.command()
     async def RandomCar(self, ctx, arg):
@@ -61,29 +47,22 @@ class fastcar(commands.Cog):
                     i = i + 1
 
     @commands.command()
-    async def Car(self, ctx, *args):
-        if len(args) != 0:
-            #print("good\n")
-            arg = str(args[0])
-            #print(arg + '\n')
-            if arg.isdigit():
-                if len(arg) == 8:
-                    output = data['Pixiv'] + arg
-                    if LDOApixiv(output):
-                        await ctx.send('以下連結飄出了來自P網的香氣\n' + '||' + output + '||')
-                    else:
-                        await ctx.send("404 not found. 發車到P網的同志翻車了\n")
-                if len(arg) == 6:
-                    output = data['nhentai'] + arg
-                    if LDOAnhentai(output):
-                        await ctx.send("以下連結內容基本母湯，不建議在公開場合點擊\n")
-                        await ctx.send('||' + output + '||')
-                    else:
-                        await ctx.send("404 not found. 發車到n網的同志翻車了\n")
+    async def Car(self, ctx, arg):
+        if(isPixiv(arg)):
+            output = data['Pixiv'] + arg
+            if LDOApixiv(output):
+                await ctx.send('以下連結飄出了來自P網的香氣\n' + '||' + output + '||')
             else:
-                await ctx.send("Please input Num!")
+                await ctx.send("404 not found. 發車到P網的同志翻車了\n")
+        elif(isnhentai(arg)):
+            output = data['nhentai'] + arg
+            if LDOAnhentai(output):
+                await ctx.send("以下連結內容基本母湯，不建議在公開場合點擊\n")
+                await ctx.send('||' + output + '||')
+            else:
+                await ctx.send("404 not found. 發車到n網的同志翻車了\n")
         else:
-            await ctx.send("input cannot be NULL!")
+            await ctx.send("Please input Num!")
 
 def LDOApixiv(output):
     r = requests.get(output)

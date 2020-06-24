@@ -6,6 +6,7 @@ import random
 import os
 import json
 import time
+from code.hideCode.regular import isDigital
 #This is use vanilla command.
 
 with open('set.json', 'r', encoding = 'utf8') as jfile:
@@ -14,19 +15,10 @@ with open('set.json', 'r', encoding = 'utf8') as jfile:
 class cmds(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
-#ctx = discord bot
-#await = ?
+
     @commands.command()
     async def helps(self, ctx):
         await ctx.send("we own these order:\n!add [number1] [number2]\n!sub [number1] [number2]\n!ping\n!pan\n!USSR\n!USSRExtreme\n!PS5")
-#        await ctx.send("we own these order:\n")
-#        await ctx.send("!add [number1] [number2]")
-#        await ctx.send("!sub [number1] [number2]")
-#        await ctx.send("!ping")
-#        await ctx.send("!pan")
-#        await ctx.send("!USSR")
-#        await ctx.send("!USSRExtreme")
-#        await ctx.send("!PS5")
 
     @commands.command()
     async def HTC(self, ctx):
@@ -39,7 +31,14 @@ class cmds(commands.Cog):
 
         #@commands.command()
         #async def limit(self, *, arg):
-   
+    
+    @commands.command()
+    async def whatThis(self, ctx, s):
+        if(bool(isDigital(s))):
+            await ctx.send("This is a number.")
+        else:
+            await ctx.send("I can't read this.")
+
     @commands.command()
     async def add(self, ctx, a: int, b: int):
         await ctx.send(a + b)

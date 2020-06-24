@@ -1,6 +1,5 @@
 # 檔案名稱 .gitignore
 # 前面+ '!' 可反向為不要忽略 -> !*.c
-*.json
 set.json
 *.pyc
 
