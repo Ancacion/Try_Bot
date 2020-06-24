@@ -15,6 +15,7 @@ bot.load_extension('code.cmds')
 bot.load_extension('code.showPicGif')
 bot.load_extension('code.listener')
 bot.load_extension('code.fastcar')
+bot.load_extension('code.gsheets')
 
 #當bot成功上線時輸出成功訊息
 @bot.event
